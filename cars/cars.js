@@ -26,14 +26,14 @@ router.post("/", validateCar, (req, res) => {
 
 function validateCar(req, res, next) {
   if (Object.keys(req.body) === 0) {
-    res.status(400).json({ message: "Empthy Car data" });
+    res.status(404).json({ message: "Empthy Car data" });
   } else if (
     !req.body.vin ||
     !req.body.make ||
     !req.body.model ||
     !req.body.mileage
   ) {
-    res.status(400).json({ message: "Missing required vin field" });
+    res.status(404).json({ message: "Missing required text field" });
   } else {
     next();
   }
