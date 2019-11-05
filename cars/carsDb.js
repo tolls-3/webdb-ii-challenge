@@ -8,6 +8,10 @@ function get() {
   return db("cars");
 }
 
+function getById(id) {
+  return db("cars").where({ id });
+}
+
 function update(id, changes) {
   return db("cars")
     .where({ id })
@@ -23,6 +27,7 @@ function remove(id) {
 module.exports = {
   insert,
   get,
+  getById,
   update,
   remove
 };
